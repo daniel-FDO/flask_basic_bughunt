@@ -7,7 +7,10 @@
     <h1>Welcome to {{ club_name }}</h1>
     <p class="shout">{{ club_name|upper }}</p>
     <p>Free coding sessions for young people aged 7 to 17.</p>
-    <p>Next session: {{ next_session }}</p>
-    <a class="button" href="{{ url_for('event_list') }}">See upcoming events</a>
+   {% if next_session %}
+   <p class="a1"> Next session: {{ next_session }}</p>
+   {% else %}
+   <p> No session </p>
+   {% endif %}
 </section>
 {% endblock %}

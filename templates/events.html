@@ -8,8 +8,15 @@
 <div class="cards">
     {% for event in events%}
     <article class="card">
-        <p class="badge">Event {{loop.index}}</p>
+        <p class="badge">{% if loop.first %} Next up {%else%}Event {{loop.index}}{% endif %}</p>
         <h2>{{ event.Title }}</h2>
+        {% if event.Capacity <= 12 %}
+        <p class="tag small"> Small group - {{event.Capacity}} places </p>
+        {% elif event.Capacity >= 20 %}
+        <p class="tag big">Big session - {{ event.Capacity}} places </p>
+        {% else %}
+        <p class+"tag"> {{ event.Capacity}} places </p>
+        {% endif %}
         <p>{{ event.EventDate }}  {{ events.StartTime }}</p>
         <a href="{{ url_for('event_detail', event_id=event.EventID) }}">Details</a>
     </article>
