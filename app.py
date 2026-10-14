@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 
 app = Flask(__name__)
 
@@ -28,6 +28,11 @@ def about():
 
 @app.route("/events")
 def event_list():
+    q = request.args.get("q", "")
+    results = []
+    for event in events:
+        if q.lower() in event["Title"].lower():
+            results.append(event)
     return render_template("events.html", events=events)
 
 @app.route("/events/<int:event_id>")

@@ -4,6 +4,11 @@
 
 {% block content %}
 <h1>Upcoming events</h1>
+<form method="get" actionn"{{url_for('event_list')}}" class="search>"
+<label for="q">Search</label>
+<input type="text" id="q" name="q" value="{{ q }}" placeholder="e.g. python">
+<button type="submit">Search</button>
+</form>
 <p>{{ events|length }} events planned.</p>
 <div class="cards">
     {% for event in events%}
