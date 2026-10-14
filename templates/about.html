@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %}About | CoderDojo{% endblock %} {%
+block content %}
+<h1>About us</h1>
+<p>We meet in room {{ club.Room }} every {{ club["Day"] }}.</p>
+<p>Ages: {{ club.Ages }}</p>
+<h2>Our mentors</h2>
+<p class="mMain">Lead mentor: {{ mentors[0] }}</p>
+
+<ul type="square" id=m1>
+  {% for mentor in mentors %}
+
+  <p><li>{{mentor}}</li></p>
+
+  {% endfor %}
+</ul>
+
+<p>We have {{ mentors|length }} mentors.</p>
+{% endblock%} {% block footer %}
+<p>Want to volunteer? Speak to a mentor on the day.</p>
+{% endblock %}
