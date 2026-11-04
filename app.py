@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, abort, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -55,7 +55,7 @@ def admin_dashboard():
     total_places = sum(e["Capacity"] for e in events)
     return render_template("admin/dashboard.html", event_count=len(events), total_places=total_places)
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
         name = request.form["name"]
