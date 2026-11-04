@@ -29,11 +29,15 @@ def about():
 @app.route("/events")
 def event_list():
     q = request.args.get("q", "")
+    location = request.args.get("location", "")
     results = []
     for event in events:
-        if q.lower() in event["Title"].lower():
+        title_ok = q.lower() in event["Title"].lower()
+        place_ok = location == "" or event["Location"] == location
+        if title_ok and place_ok:
             results.append(event)
-    return render_template("events.html", events=results, q=q)
+    locations = sorted({e ["Location"] for e in events})
+    return render_template("events.html", events=results, q=q, location=location, locations=locations)
 
 @app.route("/events/<int:event_id>")
 def event_detail(event_id):
