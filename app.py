@@ -51,5 +51,8 @@ def admin_dashboard():
     total_places = sum(e["Capacity"] for e in events)
     return render_template("admin/dashboard.html", event_count=len(events), total_places=total_places)
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 if __name__ == "__main__":
     app.run(debug=True)

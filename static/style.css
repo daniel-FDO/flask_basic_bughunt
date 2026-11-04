@@ -111,3 +111,31 @@ body {
   border-radius: 25px;
   border-style: dashed;
 }
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+#name{
+  border-radius: 5px;
+}
+
+#email{
+  border-radius: 5px;
+}
+
+#message{
+  border-radius: 5px;
+}
+
+button.submit{
+  background-color: #1b7f79;
+  padding: 10px 16px;
+  border-radius: 5px;
+  color: white;
+
+}
