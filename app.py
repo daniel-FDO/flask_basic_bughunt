@@ -33,7 +33,7 @@ def event_list():
     for event in events:
         if q.lower() in event["Title"].lower():
             results.append(event)
-    return render_template("events.html", events=events)
+    return render_template("events.html", events=results, q=q)
 
 @app.route("/events/<int:event_id>")
 def event_detail(event_id):
