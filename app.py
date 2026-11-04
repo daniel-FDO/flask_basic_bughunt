@@ -14,6 +14,10 @@ events = [
          "StartTime": "13:00", "EndTime": "15:00", "Location": "Lab 3", "Capacity": 12},
 ]
 
+messages = [
+
+]
+
 @app.route("/")
 def home():
     club_name = "CoderDojo Canterbury"
@@ -53,6 +57,16 @@ def admin_dashboard():
 
 @app.route("/contact")
 def contact():
+    if request.method == "POST":
+        name = request.form["name"]
+        email = request.form["email"]
+        message = request.form["message"]
+        messages.append({"Name": name, "Email":email, "Message": message})
+        return redirect(url_for("contact_thanks")) 
     return render_template("contact.html")
+
+@app.route("/contact/thanks")
+def contact_thanks():
+    return render_template("thanks.html")
 if __name__ == "__main__":
     app.run(debug=True)
