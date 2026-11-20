@@ -74,6 +74,7 @@ def contact():
 
         if not errors:
             messages.append({"Name": name, "Email": email, "Message": message})
+            flash(f"Thanks {name}, your message has been sent.", "success")
             return redirect(url_for("contact_thanks"))
 
     return render_template("contact.html", errors=errors, form=request.form)
