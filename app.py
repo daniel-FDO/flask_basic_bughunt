@@ -2,7 +2,7 @@ from flask import Flask, render_template, abort, request, redirect, url_for, fla
 
 
 app = Flask(__name__)
-app.secret_key = "secret"  # Needed for flash messages
+app.secret_key = "036fd0898f7f7856fcaba8bbad1ff277c16d6e3f865ae11b35c07929ddfbd11b" 
 
 # Weeks 1-2 only. From Week 3 these rows come from the Events table.
 events = [
