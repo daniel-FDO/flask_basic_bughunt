@@ -53,7 +53,7 @@ def event_detail(event_id):
 @app.route("/admin")
 def admin_dashboard():
     total_places = sum(e["Capacity"] for e in events)
-    return render_template("admin/dashboard.html", event_count=len(events), total_places=total_places)
+    return render_template("admin/dashboard.html", event_count=len(events), total_places=total_places, messages=messages)
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():

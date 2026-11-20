@@ -8,4 +8,16 @@
     <div class="card stat"><span>{{ event_count }}</span> events</div>
     <div class="card stat"><span>{{ total_places }}</span> places in total</div>
 </div>
+
+<h2>Messages</h2>
+{% if messages %}
+<table class="data">
+    <tr><th>#</th><th>Name</th><th>Email</th><th>Message</th></tr>
+    {% for m in messages %}
+    <tr><td>{{loop.index}}</td><td>{{m.Name}}</td><td>{{m.Email}}</td><td>{{m.Message}}</td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No messages yet.</p>
+{% endif %}
 {% endblock %}
