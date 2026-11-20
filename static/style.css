@@ -139,3 +139,43 @@ button.submit{
   color: white;
 
 }
+
+.flash {
+  padding: 12px 16px;
+  margin: 0 0 16px;
+  border-left: 4px solid;
+  border-radius: 4px;
+}
+
+.flash.success {
+  color: #155e3b;
+  background: #e8f5ed;
+  border-color: #278653;
+}
+
+.flash.error {
+  color: #8b2525;
+  background: #fbeaea;
+  border-color: #c43d3d;
+}
+
+.flash.message {
+  color: #174e59;
+  background: #e8f4f5;
+  border-color: #267d89;
+}
+
+.errors {
+  max-width: 520px;
+  margin: 0 auto 16px;
+  padding: 12px 16px 12px 36px;
+  color: #8b2525;
+  background: #fbeaea;
+  border: 1px solid #e8bcbc;
+  border-left: 4px solid #c43d3d;
+  border-radius: 4px;
+}
+
+.errors li + li {
+  margin-top: 6px;
+}

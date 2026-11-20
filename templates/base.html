@@ -22,7 +22,7 @@
     <main class="container">
         {% with flashes = get_flashed_messages(with_categories=true) %}
         {% for category, text in flashes %}
-        <p {{category}}>{{text}}</p>
+        <p class="flash {{category}}">{{text}}</p>
         {% endfor %}
         {% endwith %}
         {% block content %}{% endblock %}
