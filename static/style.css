@@ -153,12 +153,6 @@ button.submit{
   border-color: #278653;
 }
 
-.flash.error {
-  color: #8b2525;
-  background: #fbeaea;
-  border-color: #c43d3d;
-}
-
 .flash.message {
   color: #174e59;
   background: #e8f4f5;
