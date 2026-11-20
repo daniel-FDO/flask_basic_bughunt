@@ -1,10 +1,11 @@
-from flask import Flask, render_template, abort, request, redirect, url_for
+from flask import Flask, render_template, abort, request, redirect, url_for, flash
+
 
 app = Flask(__name__)
 
 # Weeks 1-2 only. From Week 3 these rows come from the Events table.
 events = [
-    {"EventID": 1, "Title": "Scratch Games Night", "EventDate": "2026-10-10",
+    {"EventID": 1, "Title": "S`cratch Games Night", "EventDate": "2026-10-10",
      "StartTime": "10:00", "EndTime": "12:00", "Location": "Room B12", "Capacity": 20},
     {"EventID": 2, "Title": "Build a Website", "EventDate": "2026-10-17",
      "StartTime": "10:00", "EndTime": "12:30", "Location": "Room B12", "Capacity": 16},
