@@ -57,13 +57,25 @@ def admin_dashboard():
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
+    errors = []
     if request.method == "POST":
-        name = request.form["name"]
-        email = request.form["email"]
-        message = request.form["message"]
-        messages.append({"Name": name, "Email":email, "Message": message})
-        return redirect(url_for("contact_thanks")) 
-    return render_template("contact.html")
+        name = request.form.get("name", "").strip()
+        email = request.form.get("email", "").strip()
+        message = request.form.get("message", "").strip()
+
+        if name == "":
+            errors.append("Name is required.")
+        if "@" not in email:
+            errors.append("Invalid email address.")
+        if len(message) == 0:
+            errors.append("Message is required.")
+
+        if not errors:
+            messages.append({"Name": name, "Email": email, "Message": message})
+            return redirect(url_for("contact_thanks"))
+
+    return render_template("contact.html", errors=errors, form=request.form)
+
 
 @app.route("/contact/thanks")
 def contact_thanks():
